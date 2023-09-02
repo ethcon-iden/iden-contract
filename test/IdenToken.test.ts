@@ -7,6 +7,8 @@ describe("IdenToken", function () {
 
   beforeEach(async () => {
     idenToken = await ethers.deployContract("IdenToken", [ethers.parseEther("1000")]);
+    await idenToken.waitForDeployment();
+    console.log("IdenToken deployed to:", await idenToken.getAddress());
   });
 
   it("Should mint IdenToken", async function () {
